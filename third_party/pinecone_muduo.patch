@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6071a4e..4dc4429 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -23,7 +23,7 @@ set(CXX_FLAGS
+  -Werror
+  -Wconversion
+  -Wno-unused-parameter
+- -Wold-style-cast
++ -Wno-old-style-cast
+  -Woverloaded-virtual
+  -Wpointer-arith
+  -Wshadow

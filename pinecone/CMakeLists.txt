@@ -5,7 +5,7 @@ endforeach ()
 
 set(PINECONE_BASE_LINK_LIBS rt dl pthread openssl::openssl fmt::fmt boost::boost nlohmann_json::nlohmann_json grpc::grpc glog::glog magic_enum::magic_enum fmt::fmt CLI11::CLI11 libevent::libevent benchmark::benchmark_main)
 
-add_library(${PROJECT_NAME} SHARED)
+add_library(${PROJECT_NAME} STATIC)
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR})
 
 file(GLOB_RECURSE ALL_PINECONE_LIB_HEADER_FILES

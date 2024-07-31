@@ -2,6 +2,7 @@
 # To keep your changes, remove these comment lines, but the plugin won't be able to modify your requirements
 
 requirements:
+  - "libcurl/8.8.0"
   - "benchmark/1.8.4"
   - "libevent/2.1.12"
   - "openssl/3.2.2"
