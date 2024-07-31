@@ -1,0 +1,14 @@
+# This file is managed by Conan, contents will be overwritten.
+# To keep your changes, remove these comment lines, but the plugin won't be able to modify your requirements
+
+requirements:
+  - "benchmark/1.8.4"
+  - "libevent/2.1.12"
+  - "openssl/3.2.2"
+  - "glog/0.7.1"
+  - "grpc/1.54.3"
+  - "nlohmann_json/3.11.3"
+  - "fmt/10.2.1"
+  - "cli11/2.4.2"
+  - "magic_enum/0.9.5"
+  - "boost/1.85.0"
