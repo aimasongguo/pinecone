@@ -13,7 +13,7 @@ release
 ```config
 -DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=./conan_provider.cmake
 build\x64_Release
---config Release -- -j 16```
+--config Release -- -j 16
 ```
 
 
