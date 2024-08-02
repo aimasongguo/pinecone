@@ -11,7 +11,7 @@ set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O3 -fPIC -ggdb -Wall -Wno-depreca
 set(CMAKE_C_FLAGS "$ENV{CXXFLAGS} -rdynamic -O3 -fPIC -ggdb -Wall -Wno-deprecated -Werror -Wno-old-style-cast -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-project(pinecone VERSION 0.0.1 LANGUAGES CXX)
+project(pinecone VERSION 0.0.1 LANGUAGES C CXX)
 
 add_subdirectory(benchmark)
 add_subdirectory(pinecone)
