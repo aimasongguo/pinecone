@@ -25,16 +25,17 @@ void FlushFunc()
 }
 
 static auto BmLog(benchmark::State& state) -> void {
-
+  int size = state.range(0);
   g_log_file.reset(new muduo::LogFile(::basename("./benchmark_muduo.log"), 10 * 1024 *1024));
   muduo::Logger::setOutput(OutputFunc);
   muduo::Logger::setFlush(FlushFunc);
   for (auto _ : state) {
 //    BOOST_LOG_TRIVIAL(trace) << "abcdefghijklmnopqrstuvwxyz._0123456789";
-    LOG_INFO << "abcdefghijklmnopqrstuvwxyz._0123456789";
+    for (int i = 0; i < size; ++i) {
+      LOG_INFO << "abcdefghijklmnopqrstuvwxyz._0123456789";
+    }
   }
 }
-
-BENCHMARK(BmLog);
+BENCHMARK(BmLog)->Arg(1)->Arg(10)->Arg(100);
 
 BENCHMARK_MAIN();

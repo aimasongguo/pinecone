@@ -28,7 +28,8 @@ namespace keywords = boost::log::keywords;
 namespace expr = boost::log::expressions;
 namespace attrs = boost::log::attributes;
 
-static auto BmLog(benchmark::State& state) -> void {
+static auto BmLog(benchmark::State &state) -> void {
+  int size = state.range(0);
   boost::log::core::get()->add_global_attribute("DateTime", boost::log::attributes::local_clock());
   boost::log::core::get()->add_global_attribute("ThreadId", boost::log::attributes::current_thread_id());
   boost::log::core::get()->add_global_attribute("Scope", boost::log::attributes::named_scope());
@@ -58,10 +59,12 @@ static auto BmLog(benchmark::State& state) -> void {
   BOOST_LOG_FUNCTION();
 
   for (auto _ : state) {
-    BOOST_LOG_TRIVIAL(trace) << "abcdefghijklmnopqrstuvwxyz._0123456789";
+    for (int i = 0; i < size; ++i) {
+      BOOST_LOG_TRIVIAL(trace) << "abcdefghijklmnopqrstuvwxyz._0123456789";
+    }
   }
 }
 
-BENCHMARK(BmLog);
+BENCHMARK(BmLog)->Arg(1)->Arg(10)->Arg(100)->Arg(1000)->Arg(10000)->Arg(100000);
 
 BENCHMARK_MAIN();

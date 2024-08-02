@@ -4,15 +4,19 @@
 #include <glog/logging.h>
 #include <benchmark/benchmark.h>
 
-static auto BmLog(benchmark::State& state) -> void {
+static auto BmLog(benchmark::State &state) -> void {
+  int size = state.range(0);
+
   for (auto _ : state) {
-    LOG(INFO) << "abcdefghijklmnopqrstuvwxyz._0123456789";
+    for (int i = 0; i < size; ++i) {
+      LOG(INFO) << "abcdefghijklmnopqrstuvwxyz._0123456789";
+    }
   }
 }
+BENCHMARK(BmLog)->Arg(1)->Arg(10)->Arg(100)->Arg(1000)->Arg(10000)->Arg(100000);
 
-BENCHMARK(BmLog);
 
-auto main([[maybe_unused]] int argc,[[maybe_unused]] char** argv) -> int {
+auto main([[maybe_unused]] int argc, [[maybe_unused]] char **argv) -> int {
   google::InitGoogleLogging(argv[0]);
   // 设置日志输出到stderr，而不是默认的文件
 //  FLAGS_logtostderr = true;
